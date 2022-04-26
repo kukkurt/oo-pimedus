@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ÖÖpimedus</title>
-    <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;700&display=swap" rel="stylesheet">  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ÖÖpimedus</title>
+  <link rel="stylesheet" href="style.css">
 
-
-    
-    <script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
-    <!-- The lines below are only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    
-    <style>
-      .map {
-        width: 100%;
-        height:400px;
-      }
-      td {
-        padding: 0 0.5em;
-        text-align: right;
-      }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;700&display=swap" rel="stylesheet">
 
 
-  </head>
-  <body>
-    <h1>ÖÖpimedus</h1>
-    <p>Kui pikk on öö. Määra asukoht ja kuupäev. Saa teada, millal on õige aeg ilutulestiku lasta. Saa teada, millal helkur nähtaval peab olema. </p>
-    <!-- <form>
-        <label for="date1">Kuupäev:</label>
-        <input type="date" id="date" name="date">
-      </form>
-     -->
-    <form >
+</head>
+
+<body>
+  <div class="left-side">
+    <div>
+      <h1>ÖÖpimedus</h1>
+      <p>Kui pikk on öö. Määra asukoht ja kuupäev. Saa teada, millal on õige aeg ilutulestiku lasta. Saa teada, millal kodunt väljudes, kindlasti helkur peab kaasas olema. </p>
+    </div>
+
+    <div class="date">
+      <form>
         <label for="daytime">Sisesta kuupäev ja kellaaeg:</label>
-        <input type="datetime-local" id="bdaytime" name="daytime">
+        <input type="datetime-local" id="daytime" name="daytime">
       </form>
+    </div>
 
-      <form id="location">
-          <label for="location">Sisesta asukoht</label>
-          <input type="datetime-local" id="bdaytime" name="daytime">
-        </form>
+    <div class="coord">
+      <p>Sisesta asukoht</p>
 
-        <p id="sunrise">Päike tõuseb</p> 
-        <!-- siia peaks tulema <output> -->
-        <p id="sunset">Päike loojub</p>
+      <div id="inputForm">Latitude:
+        <input id="latitude" type="text" value="51.481383" />
+        Longitude:
+        <input id="longitude" type="text" value="-0.087891" />
+        <input id="btn_addmarker" type="button" value="Add Marker" />
+      </div>
+    </div>
 
-  
-  <div id="map" class="map">
+
+    <div class="sun-info">
+      <p id="sunrise">Päike tõuseb</p> <span></span>
+      <!-- siia peaks tulema <output> -->
+      <p id="sunset">Päike loojub</p> <span></span>
+    </div>
+  </div>
+  <!-- MAP part -->
+  <div class="right-side">
+    <div id="map" class="map">
       <div id="popup"></div>
     </div>
     <div id="info"></div>
+  </div>
 
-    <script type="module" src="main.js"></script>
+  
+<!-- scripts -->
+  <script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
+  <!-- The lines below are only needed for old environments like Internet Explorer and Android 4.x -->
+  <script
+    src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-  </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src="func.js"></script>
+  <script type="module" src="main.js"></script>
+
+</body>
+
 </html>

@@ -1,72 +1,101 @@
-body {font-family: "Jura", sans-serif;
-      color:#000;}
-h1{position: absolute;
-width: 283px;
-height: 57px;
-left: 147px;
-top: 162px;
-
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-line-height: 57px;
-/* identical to box height */
-}
-
-p{
-position: absolute;
-width: 325px;
-height: 92px;
-left: 130px;
-top: 246px;
-
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
-}
-form label {position: absolute;
-  width: 180px;
-  height: 19px;
-  left: 131px;
-  top: 363px;
-  
+body {
+  font-family: "Jura", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
+  color: #000;
+  display: flex;
+  justify-content: space-around;
+}
 
-  }
-#location{
-position: absolute;
-width: 120px;
-height: 19px;
-top: 121px;
+h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 57px;
+}
+
+.left-side {
+  background-color:orange;
+  width: 30%;
+  display: flex;
+  /* align-items:  */
+  flex-direction: column;
+}
+
+div {
+  padding: 1em;
+  margin-left: 2em;
+  margin-right: 3em;
+}
+.right-side{
+  background-color: blueviolet;
+  width:70%;
 
 }
-#sunrise{
-position: absolute;
-width: 356px;
-height: 29px;
-left: 132px;
-top: 607px;
+.map {
+  background-color:pink;
+  width: auto;
+  height: 800px;
+  /* padding-right: 5%; */
 }
-#sunset{
-  position: absolute;
-width: 356px;
-height: 50px;
-left: 132px;
-top: 642px;
-}
-form input{
-position: absolute;
-width: 331px;
-height: 41px;
-left: 131px;
-top: 399px;
+/* form label {
 
-background: #FFFFFF;
+  width: 230px;
+  height: 19px;
+  left: 131px;
+  top: 363px;
 
-border: 1px solid #2F80ED;
-box-sizing: border-box;
+
 }
+
+.coord {
+  width: 120px;
+  height: 19px;
+  padding: 30px;
+  top: 500px;
+
+}
+
+#sunrise {
+
+  width: 356px;
+  height: 29px;
+  left: 132px;
+  top: 607px;
+}
+
+#sunset {
+
+  width: 356px;
+  height: 50px;
+  left: 132px;
+  top: 642px;
+}
+
+form input {
+
+  width: 331px;
+  height: 41px;
+  left: 131px;
+  top: 399px;
+
+  background: #FFFFFF;
+
+  border: 1px solid #2F80ED;
+  box-sizing: border-box;
+}
+
+.map {
+  top: 20%;
+  float: right;
+  width: 600px;
+  height: 400px;
+  padding-right: 5%;
+}
+
+td {
+  padding: 0.5em;
+  text-align: right;
+} */

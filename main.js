@@ -8,7 +8,7 @@ import {useGeographic} from 'ol/proj';
 
 useGeographic();
 
-const place = [-110, 45];
+const place = [-360, 45];
 
 const point = new Point(place);
 
@@ -16,7 +16,7 @@ const map = new Map({
   target: 'map',
   view: new View({
     center: place,
-    zoom: 8,
+    zoom: 10,
   }),
   layers: [
     new TileLayer({
@@ -40,7 +40,7 @@ const element = document.getElementById('popup');
 
 const popup = new Overlay({
   element: element,
-  positioning: 'bottom-center',
+  positioning: 'center-right',
   stopEvent: false,
   offset: [0, -10],
 });
