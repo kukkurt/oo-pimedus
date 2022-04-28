@@ -34,20 +34,21 @@
       <p>Sisesta asukoht</p>
 
       <div id="inputForm">Latitude:
-        <input id="latitude" type="text" value="51.481383" />
+        <input id="latitude" type="text" value="58.3721128" />
         <br>
         Longitude:
-        <input id="longitude" type="text" value="-0.087891" />
+        <input id="longitude" type="text" value="26.7865467" />
         <br>
+        <input id="btn-get" type="button" value="Vaata" />
         <input id="btn_addmarker" type="button" value="Add Marker" />
       </div>
     </div>
 
 
     <div class="sun-info">
-      <p id="sunrise">Päike tõuseb</p> <span></span>
+      <p >Päike tõuseb</p> <span id="sunrise"></span>
       <!-- siia peaks tulema <output> -->
-      <p id="sunset">Päike loojub</p> <span></span>
+      <p >Päike loojub</p> <span id="sunset"></span>
     </div>
   </div>
   <!-- MAP part -->
@@ -70,21 +71,9 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
  
-  <script src="func.js"></script>
+  <script src="api.js"></script>
   <script type="module" src="main.js"></script>
-  <script>
-      const params = new URLSearchParams({
-          lat : document.querySelector("#latitude").value,
-          lng : document.querySelector("#longitude").value,
-          date: document.querySelector("#day").valueAsDate.toISOString().split("T")[0]
-      })
-      // const url ="https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2022-04-16"
-      const url = `https://api.sunrise-sunset.org/json?${params.toString()}`
-      fetch (url)
-       .then(response => response.text())
-       .then(console.log)
 
-  </script>
 </body>
 
 </html>
