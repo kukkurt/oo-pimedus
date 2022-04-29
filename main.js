@@ -14,9 +14,9 @@ import {
 import {
   OSM,
   Vector as VectorSource,
-  Stamen,
   TileJSON
 } from 'ol/source';
+import DayNight from 'ol-ext/source/DayNight';
 import {
   Point
 } from 'ol/geom';
@@ -42,7 +42,7 @@ var placemark = new Placemark({
 
   contentColor: '#000',
   onshow: function () {
-    console.log("You opened a placemark");
+    // console.log("You opened a placemark");
   },
   autoPan: true,
   autoPanAnimation: {
@@ -57,9 +57,29 @@ const baseLayer = new TileLayer({
   source: new OSM(),
 });
 
+var vectorSource = new DayNight({});
+
+const dayNight = new VectorLayer({
+  source: vectorSource,
+  style: new Style({
+    image: new Circle({
+      radius: 5,
+      fill: new Fill({
+        color: 'red'
+      })
+    }),
+    fill: new Fill({
+      color: [0, 0, 50, .5]
+    })
+  })
+});
+
+
+
+
 const target = document.getElementById('map');
 const map = new Map({
-  layers: [baseLayer],
+  layers: [baseLayer, dayNight],
   target: target,
   view: new View({
     center: [0, 0],
@@ -83,20 +103,3 @@ document.querySelector("#btn-get").addEventListener("click", function () {
   placemark.show([long, lat]);
 
 });
-// const modify = new Modify({
-//   hitDetection: vectorLayer,
-//   source: vectorSource,
-// });
-// modify.on(['modifystart', 'modifyend'], function (evt) {
-//   const coordinate = feature.getGeometry().getCoordinates();
-//   document.querySelector("#latitude").value = coordinate[1];
-//   document.querySelector("#longitude").value = coordinate[0];
-
-//   target.style.cursor = evt.type === 'modifystart' ? 'grabbing' : 'pointer';
-// });
-// const overlaySource = modify.getOverlay().getSource();
-// overlaySource.on(['addfeature', 'removefeature'], function (evt) {
-//   target.style.cursor = evt.type === 'addfeature' ? 'pointer' : '';
-// });
-
-// map.addInteraction(modify);
