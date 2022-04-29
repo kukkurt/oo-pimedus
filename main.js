@@ -22,12 +22,12 @@ const vectorSource = new VectorSource({
 
 const vectorLayer = new VectorLayer({
   source: vectorSource,
-  style: new Style({
-    image: new Circle({
-      radius: 9,
-      fill: new Fill({color: 'blue'}),
-    }),
-  }),
+  // style: new Style({
+  //   image: new Circle({
+  //     radius: 9,
+  //     fill: new Fill({color: 'blue'}),
+  //   }),
+  // }),
 });
 
 
@@ -51,7 +51,8 @@ const modify = new Modify({
 });
 modify.on(['modifystart', 'modifyend'], function (evt) { 
 const coordinate = feature.getGeometry().getCoordinates();
-  console.log(coordinate);
+document.querySelector("#latitude").value =coordinate[1];
+document.querySelector("#longitude").value = coordinate [0];
   
   target.style.cursor = evt.type === 'modifystart' ? 'grabbing' : 'pointer';
 });

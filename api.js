@@ -1,4 +1,9 @@
 document.querySelector("#btn-get").addEventListener("click", function () {
+if (!document.querySelector("#day").valueAsDate){
+  alert("Sisesta palun kuupäev");
+  return;
+}
+
   const params = new URLSearchParams({
     lat: document.querySelector("#latitude").value,
     lng: document.querySelector("#longitude").value,
