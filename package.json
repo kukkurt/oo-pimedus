@@ -5,10 +5,15 @@
     "ol-ext": "^3.2.24"
   },
   "devDependencies": {
-    "parcel": "^2.0.0"
+    "parcel": "^2.0.0",
+    "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build --public-url . index.html"
-  }
+  },
+  "staticFiles": {
+    "staticPath": ["img"]
+ }
+
 }
