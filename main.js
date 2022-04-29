@@ -91,6 +91,7 @@ const map = new Map({
 });
 
 placemark.show([23, 58]);
+
 map.on('click', function (e) {
   placemark.show(e.coordinate);
   document.querySelector("#latitude").value = e.coordinate[1];
@@ -101,5 +102,8 @@ document.querySelector("#btn-get").addEventListener("click", function () {
   const lat = document.querySelector("#latitude").value;
   const long = document.querySelector("#longitude").value;
   placemark.show([long, lat]);
-
+  // vectorSource.setTime($("#day").val());
 });
+$('#day').on('change', function() {
+  vectorSource.setTime($(this).val());
+})
