@@ -32,17 +32,13 @@ import {
   Select
 } from 'ol/interaction';
 import Placemark from 'ol-ext/overlay/Placemark';
-// useGeographic();
-
-const place = [0, 0];
-
-const point = new Point(place);
-
-const feature = new Feature(point);
+useGeographic();
 
 
 
 var placemark = new Placemark ({
+
+
 
   contentColor: '#000',
   onshow: function(){ console.log("You opened a placemark"); },
@@ -62,18 +58,24 @@ const map = new Map({
   layers: [baseLayer],
   target: target,
   view: new View({
-    center: [23, 58],
-    zoom: 6,
-    projection:'EPSG:4326'
+    center: [0, 0],
+    zoom: 0,
+    //projection:'EPSG:4326' //- vaja kasutada kui pole useGeographic();
+ 
   }),
   overlays: [placemark]
 });
+
 placemark.show([23,58]);
 map.on('click', function(e) {
   placemark.show(e.coordinate); 
 });
+document.querySelector("#btn-get").addEventListener("click", function () {
+  const lat = document.querySelector("#latitude").value ;
+  const long = document.querySelector("#longitude").value;
+  placemark.show([long,lat]); 
 
-
+});
 // const modify = new Modify({
 //   hitDetection: vectorLayer,
 //   source: vectorSource,
