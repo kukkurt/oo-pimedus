@@ -1,8 +1,8 @@
 document.querySelector("#btn-get").addEventListener("click", function () {
-if (!document.querySelector("#day").valueAsDate){
-  alert("Sisesta palun kuupäev");
-  return;
-}
+  if (!document.querySelector("#day").valueAsDate) {
+    alert("Sisesta palun kuupäev");
+    return;
+  }
 
   const params = new URLSearchParams({
     lat: document.querySelector("#latitude").value,
@@ -17,7 +17,26 @@ if (!document.querySelector("#day").valueAsDate){
       console.log(json);
       document.querySelector("#sunrise").textContent = json.results.sunrise;
       document.querySelector("#sunset").textContent = json.results.sunset
+      
+      const time = json.results.day_length.split(":");
+      const timeSec = time[2]*1 + time[1] * 60 + time[0] * 60 *60;
+      console.log(timeSec);
+      console.log(24*60*60);
+      
+      const nightHour =(((24 * 60 * 60) - timeSec)/3600);
+      const hours= Math.floor(nightHour);
+      const nightMinutes = (nightHour-hours)*60;
+      const minutes =Math.floor(nightMinutes);
+      const nightSeconds = (nightMinutes-minutes)*60;
+      const seconds = Math.floor(nightSeconds);
 
+        nightTime= [hours,minutes, seconds].join(":");
+
+      
+      
+      
+      document.querySelector("#nighttime").textContent = nightTime;
+      // document.querySelector("#daytime").textContent = json.results.day_length;
     })
 
 })

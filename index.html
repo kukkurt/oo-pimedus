@@ -28,9 +28,9 @@
 
 <body>
   <div class="left-side">
-    <div >
+    <div  >
       <h1>ÖÖpimedus</h1>
-      <p>Kui pikk on öö. Määra asukoht ja kuupäev. Saa teada, millal on õige aeg ilutulestiku lasta. Saa teada, millal kodunt väljudes, kindlasti helkur peab kaasas olema. </p>
+      <p>Kui pikk on öö. Määra kuupäev ja asukoht. <br> Saa teada, millal on õige aeg ilutulestiku lasta.  <br>Saa teada, millal kodunt väljudes, kindlasti helkur peab kaasas olema. </p>
     </div>
 
     <div class="date">
@@ -39,29 +39,36 @@
         <input type="date" id="day" name="day">
       </form>
     </div>
-    
 
     <div class="coord">
       <p>Sisesta asukoht</p>
-        <div class="remark">Latitude jääb vahemikku -90 kuni 90</div>
+       
       <div id="inputForm">Latitude:
         <input id="latitude" type="text" value="58.3721128" />
+        <div class="remark"> Latitude jääb vahemikku -90 kuni 90</div>
         <br>
         Longitude:
         <input id="longitude" type="text" value="26.7865467" />
+       
         <br>
         <input id="btn-get" type="button" value="Vaata" />
        
       </div>
+     
     </div>
 
-
+    <!-- <div>Päev kestab <span id="daytime"></span> </div> -->
+    <div class="sun-info solution">Öö kestab <span id="nighttime"></span> </div>
+    
     <div class="sun-info">
-      <p >Päike tõuseb</p> <span id="sunrise"></span>
-      <!-- siia peaks tulema <output> -->
-      <p >Päike loojub</p> <span id="sunset"></span>
+      <div>Päike tõuseb <span id="sunrise"></span></div>
+      <div>Päike loojub <span id="sunset"></span></div>
+      <div class="remark"> Kella aeg on null meridiaani järgi.</div>
     </div>
+   
   </div>
+
+
   <!-- MAP part -->
   <div class="right-side">
     <div id="map" class="map">

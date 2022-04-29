@@ -36,19 +36,23 @@ useGeographic();
 
 
 
-var placemark = new Placemark ({
+var placemark = new Placemark({
 
 
 
   contentColor: '#000',
-  onshow: function(){ console.log("You opened a placemark"); },
+  onshow: function () {
+    console.log("You opened a placemark");
+  },
   autoPan: true,
-  autoPanAnimation: { duration: 250 }
+  autoPanAnimation: {
+    duration: 250
+  }
 
 });
 placemark.setBackgroundColor('transparent');
 placemark.setColor('blue');
- 
+
 const baseLayer = new TileLayer({
   source: new OSM(),
 });
@@ -61,19 +65,22 @@ const map = new Map({
     center: [0, 0],
     zoom: 0,
     //projection:'EPSG:4326' //- vaja kasutada kui pole useGeographic();
- 
+
   }),
   overlays: [placemark]
 });
 
-placemark.show([23,58]);
-map.on('click', function(e) {
-  placemark.show(e.coordinate); 
+placemark.show([23, 58]);
+map.on('click', function (e) {
+  placemark.show(e.coordinate);
+  document.querySelector("#latitude").value = e.coordinate[1];
+  document.querySelector("#longitude").value = e.coordinate[0];
 });
+
 document.querySelector("#btn-get").addEventListener("click", function () {
-  const lat = document.querySelector("#latitude").value ;
+  const lat = document.querySelector("#latitude").value;
   const long = document.querySelector("#longitude").value;
-  placemark.show([long,lat]); 
+  placemark.show([long, lat]);
 
 });
 // const modify = new Modify({
@@ -84,7 +91,7 @@ document.querySelector("#btn-get").addEventListener("click", function () {
 //   const coordinate = feature.getGeometry().getCoordinates();
 //   document.querySelector("#latitude").value = coordinate[1];
 //   document.querySelector("#longitude").value = coordinate[0];
- 
+
 //   target.style.cursor = evt.type === 'modifystart' ? 'grabbing' : 'pointer';
 // });
 // const overlaySource = modify.getOverlay().getSource();
