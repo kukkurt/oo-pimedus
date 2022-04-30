@@ -1,6 +1,6 @@
 # oo-pimedus
 
-Rakenduse kasutamine.
+Rakenduse avamine.
 
 Lae alla githubist:
 
@@ -16,3 +16,5 @@ Ava link brauseris
 http://localhost:1234
 
 ***[Kasutamine](USAGE.md)***
+
+Soovitavalt kasutada Google Chrome'i
