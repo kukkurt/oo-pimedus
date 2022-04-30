@@ -14,3 +14,5 @@ Koodi käivitamine
 
 Ava link brauseris
 http://localhost:1234
+
+***[Kasutamine](USAGE.md)***
